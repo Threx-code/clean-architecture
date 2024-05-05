@@ -1,11 +1,9 @@
-FROM php:8.3-cli
+FROM php:8.3-fpm-alpine
 
 # Install dependencies
 RUN set -ex \
-    && apt-get update \
-    && apt-get install -y --no-install-recommends \
-        libpq-dev \
-        yarn
+    && apk --no-cache add postgresql-dev yarn\
+    && docker-php-ext-install pdo pdo_pgsql exif
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo pdo_pgsql exif \

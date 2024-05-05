@@ -27,7 +27,7 @@ services:
             context: .
             dockerfile: Dockerfile
 
-        container_name: ${APP_NAME}
+        container_name: ${APP_NAME}_php
 
         volumes:
             - ./:/var/www/html

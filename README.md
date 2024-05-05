@@ -10,6 +10,6 @@ IF you have Docker follow the setup below, or clone the repository and run it th
 - docker compose build
 - docker compose ps -a (To see the list of containers started)
 - docker compose up -d
-- docker exec -it productCart_php /bin/sh
+- docker exec -it caApp /bin/sh
 - Run the migrations (php artisan migrate)
 - Seed the database (php artisan db:seed)
