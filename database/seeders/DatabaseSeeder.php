@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use Domain\Blogging\Models\Post;
+use Domain\Shared\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,8 +14,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(
-            class: DefaultUserSeeder::class
-        );
+//        if(app()->environment(environment: 'local')) {
+//            $this->call(
+//                class: DefaultUserSeeder::class
+//            );
+//        }
+
+        Post::factory(20)->for(
+            User::factory()->create([
+                'first_name' => 'Oluwatosin',
+                'last_name' => 'Amokeodo',
+                'email' => 'oluwatosin@gmail.com'
+            ])
+        )->create();
     }
 }
