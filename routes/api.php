@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Posts\IndexController;
 use App\Http\Controllers\Posts\ShowController;
+use App\Http\Controllers\Posts\StoreController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,4 +14,5 @@ Route::get('/user', function (Request $request) {
 Route::prefix('v1/posts')->as('v1:posts:')->group(function (){
     Route::get('/', IndexController::class)->name('index');
     Route::get('{post:key}', ShowController::class)->name('show');
+    Route::post('/', StoreController::class)->name('store');
 });
