@@ -3,6 +3,7 @@
 namespace Domain\Blogging\Models;
 
 use Domain\Blogging\Models\Builders\PostBuilder;
+use Domain\Blogging\Models\Concerns\HasKey;
 use Domain\Blogging\Models\Concerns\HasSlug;
 use Domain\Shared\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
-    use HasFactory, SoftDeletes, HasSlug;
+    use HasFactory, SoftDeletes, HasKey, HasSlug;
 
     protected $guarded = [];
 

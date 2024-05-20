@@ -5,13 +5,13 @@ namespace Domain\Blogging\Models\Concerns;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-trait HasSlug
+trait HasKey
 {
-
-    public static function bootHasSlug(): void
+    public static function bootHasKey(): void
     {
-        static::creating(function ($model){
-            $model->slug = Str::slug($model->title);
+        static::creating(function(Model $model) {
+            $model->key = Str::uuid()->toString();
         });
     }
 }
+

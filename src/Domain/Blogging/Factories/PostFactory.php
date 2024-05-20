@@ -2,7 +2,19 @@
 
 namespace Domain\Blogging\Factories;
 
+use Domain\Blogging\ValueObjects\PostValueObject;
+
 class PostFactory
 {
+
+    public static function create( array $attributes): PostValueObject
+    {
+        return new PostValueObject(
+            $attributes['title'],
+            $attributes['user_id'],
+            $attributes['description'],
+            $attributes['body']
+        );
+    }
 
 }
